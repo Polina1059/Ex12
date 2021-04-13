@@ -1,6 +1,7 @@
-// Copyright 2021 GHA Test Team
-#include "TimedDoor.h"
+// Copyright 2021 Panina Polina
 #include <iostream>
+
+#include "TimedDoor.h"
 
 int main() {
   TimedDoor tDoor(5);
