@@ -1,5 +1,4 @@
 // Copyright 2021 Panina Polina
-
 #ifndef INCLUDE_TIMEDDOOR_H_
 #define INCLUDE_TIMEDDOOR_H_
 
@@ -37,11 +36,12 @@ class TimedDoor : public Door {
 
  public:
   explicit TimedDoor(int);
-  bool isDoorOpened();
-  void unlock();
-  void lock();
+  bool isDoorOpened() override;
+  void unlock() override;
+  void lock() override;
   void DoorTimeOut();
   void throwState();
+  int getTime();
 };
 
 class Timer {
