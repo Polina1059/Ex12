@@ -1,6 +1,6 @@
 // Copyright 2021 Panina Polina
-#include <iostream>
 #include "TimedDoor.h"
+#include <iostream>
 #include <ctime>
 
 DoorTimerAdapter::DoorTimerAdapter(TimedDoor& _door) : door(_door) {}
@@ -22,12 +22,12 @@ void DoorTimerAdapter::Timeout() {
   door.DoorTimeOut();
 }
 
-bool TimedDoor::isDoorOpened() { 
-	return opened; 
+bool TimedDoor::isDoorOpened() {
+    return opened;
 }
 
-void TimedDoor::lock() { 
-	opened = false; 
+void TimedDoor::lock() {
+    opened = false;
 }
 
 void TimedDoor::unlock() {
@@ -35,7 +35,8 @@ void TimedDoor::unlock() {
   adapter->Timeout();
 }
 
-TimedDoor::TimedDoor(int time) : iTimeout(time), opened(false), adapter(new DoorTimerAdapter(*this)) {}
+TimedDoor::TimedDoor(int time)
+    : iTimeout(time), opened(false), adapter(new DoorTimerAdapter(*this)) {}
 
 void TimedDoor::throwState() {
   if (!opened)
@@ -44,6 +45,6 @@ void TimedDoor::throwState() {
     throw std::string("the door is opened!");
 }
 
-void TimedDoor::DoorTimeOut() { 
-	throw std::string("close the door!"); 
+void TimedDoor::DoorTimeOut() {
+    throw std::string("close the door!");
 }
